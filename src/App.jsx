@@ -5,6 +5,7 @@ import authService from './appwrite/auth'
 import { login, logout } from "./store/authSlice"
 import { Footer, Header, Loader } from './Components'
 import { Outlet } from 'react-router-dom'
+import Home from './pages/Home'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -15,7 +16,7 @@ function App() {
       try {
             const userData = await authService.getCurrentUser();
               if (userData) {
-                dispatch(login({userData}))
+                dispatch(login(userData))
               } else {
                 dispatch(logout());
               }
@@ -43,7 +44,7 @@ function App() {
             <div className="w-full block">
               <Header />
               <main>
-                <Outlet />
+                <Outlet  />
               </main>
               <Footer />
             </div>
