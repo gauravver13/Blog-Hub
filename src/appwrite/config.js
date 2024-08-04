@@ -18,7 +18,7 @@ export class Service{
     // create likes and author with captions!
 
     // CRUD:
-    async createPost({title, slug, content, featuredImage, status, userId, author }) {
+    async createPost({ title, slug, content, featuredImage, status, userId, author }) {
         try {
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
